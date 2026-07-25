@@ -79,7 +79,7 @@ export function AIAssistant() {
     <>
       {/* Floating Button */}
       <motion.button
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 shadow-lg pulse-glow flex items-center justify-center"
+        className="fixed bottom-6 right-6 z-[9997] w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 shadow-lg pulse-glow flex items-center justify-center"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => {
@@ -104,7 +104,7 @@ export function AIAssistant() {
               height: isMinimized ? 'auto' : '600px',
             }}
             exit={{ opacity: 0, y: 100, scale: 0.9 }}
-            className={`fixed bottom-6 right-6 z-50 w-96 glass rounded-2xl overflow-hidden border border-white/10 shadow-2xl ${
+            className={`fixed bottom-6 right-6 z-[9997] w-[calc(100vw-2rem)] sm:w-96 glass rounded-2xl overflow-hidden border border-white/10 shadow-2xl ${
               isMinimized ? 'h-16' : 'h-[600px]'
             }`}
           >

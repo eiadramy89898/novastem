@@ -37,7 +37,7 @@ export default function DashboardPage() {
                 </p>
               </div>
               <motion.div
-                className="relative hidden sm:block"
+                className="relative"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
               >
@@ -49,7 +49,7 @@ export default function DashboardPage() {
                 <img
                   src="/mascot/mascot.png"
                   alt="NovaSTEM mascot"
-                  className="relative z-10 h-40 w-auto drop-shadow-2xl"
+                  className="relative z-10 h-20 sm:h-40 w-auto drop-shadow-2xl"
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
                 />
               </motion.div>
