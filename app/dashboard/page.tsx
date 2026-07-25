@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
-  BookOpen, Sparkles, ChevronRight, Plus,
+  BookOpen, Sparkles, ChevronRight,
   Trophy, Star, MessageSquare, Phone,
   GraduationCap,
 } from 'lucide-react'
@@ -30,7 +30,7 @@ export default function DashboardPage() {
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-2xl sm:text-4xl font-bold mb-2">
-                  Welcome back, <span className="gradient-text">dear STEMer!</span> ✨
+                  Welcome, <span className="gradient-text">dear STEMer!</span> ✨
                 </h1>
                 <p className="text-muted-foreground text-sm sm:text-lg">
                   You&apos;re on a 7-day streak! Keep up the amazing work.
@@ -54,14 +54,7 @@ export default function DashboardPage() {
                 />
               </motion.div>
             </div>
-            <div className="flex flex-wrap gap-3 mt-6">
-              <Button className="bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700">
-                <Sparkles className="w-4 h-4 mr-2" />Continue Journal
-              </Button>
-              <Button variant="outline" className="glass">
-                <Plus className="w-4 h-4 mr-2" />New Project
-              </Button>
-            </div>
+
           </div>
           <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl" />
