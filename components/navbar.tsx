@@ -58,7 +58,7 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Search Bar */}
+          {/* Search Bar — desktop only, mobile gets it in the menu */}
           <SearchPalette />
 
           {/* Right Section */}
@@ -111,6 +111,8 @@ export function Navbar() {
             className="md:hidden glass border-t border-white/10"
           >
             <div className="px-4 py-3 space-y-1">
+              {/* Mobile search */}
+              <SearchPalette mobile />
               {navItems.map((item) => (
                 <Link key={item.href} href={item.href}>
                   <Button

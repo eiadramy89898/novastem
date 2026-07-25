@@ -35,18 +35,14 @@ export function AIAssistant() {
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
 
-  // keep mascot state in sync (used for future mascot image switching)
-  const [mascotState, setMascotState] = useState('idle')
-
+  // listen for open-nova custom event from anywhere in the app
   useEffect(() => {
-    if (isTyping) {
-      setMascotState('thinking')
-    } else if (messages.length > 1) {
-      setMascotState('happy')
-    } else {
-      setMascotState('idle')
-    }
-  }, [isTyping, messages])
+    const handler = () => { setIsOpen(true); setIsMinimized(false) }
+    window.addEventListener('open-nova', handler)
+    return () => window.removeEventListener('open-nova', handler)
+  }, [])
+
+
 
   const handleSend = async () => {
     if (!input.trim()) return
@@ -79,7 +75,7 @@ export function AIAssistant() {
     <>
       {/* Floating Button */}
       <motion.button
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 shadow-lg pulse-glow flex items-center justify-center"
+        className="fixed bottom-6 right-6 z-[9997] w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 shadow-lg pulse-glow flex items-center justify-center"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => {
@@ -104,7 +100,7 @@ export function AIAssistant() {
               height: isMinimized ? 'auto' : '600px',
             }}
             exit={{ opacity: 0, y: 100, scale: 0.9 }}
-            className={`fixed bottom-6 right-6 z-50 w-96 glass rounded-2xl overflow-hidden border border-white/10 shadow-2xl ${
+            className={`fixed bottom-6 right-6 z-[9997] w-[calc(100vw-2rem)] sm:w-96 glass rounded-2xl overflow-hidden border border-white/10 shadow-2xl ${
               isMinimized ? 'h-16' : 'h-[600px]'
             }`}
           >

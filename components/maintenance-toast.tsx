@@ -21,7 +21,7 @@ export function MaintenanceToast() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 80, scale: 0.9 }}
           transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-          className="fixed bottom-6 left-1/2 z-[9999] -translate-x-1/2 w-[calc(100%-2rem)] max-w-sm"
+          className="fixed bottom-24 sm:bottom-6 left-1/2 z-[9998] -translate-x-1/2 w-[calc(100%-2rem)] max-w-sm"
         >
           <div
             className="relative flex items-start gap-3 rounded-2xl border border-pink-500/30 px-4 py-3.5 shadow-2xl shadow-pink-500/10"

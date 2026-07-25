@@ -86,7 +86,7 @@ function score(item: ResultItem, q: string): number {
   return matches > 0 ? matches * 15 : 0
 }
 
-export function SearchPalette() {
+export function SearchPalette({ mobile = false }: { mobile?: boolean }) {
   const [open, setOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [activeIdx, setActiveIdx] = useState(0)
@@ -135,19 +135,26 @@ export function SearchPalette() {
 
   return (
     <>
-      {/* Trigger — replaces the static search bar */}
-      <button
-        onClick={openPalette}
-        className="hidden lg:flex items-center flex-1 max-w-md mx-6"
-      >
-        <div className="relative w-full glass rounded-full px-4 py-2 flex items-center gap-2 hover:ring-2 hover:ring-purple-500/40 transition-all cursor-pointer">
+      {/* Trigger */}
+      {mobile ? (
+        <button
+          onClick={openPalette}
+          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+        >
           <Search className="w-4 h-4 text-muted-foreground shrink-0" />
-          <span className="text-sm text-muted-foreground flex-1 text-left">Search chapters, topics, weeks...</span>
-          <kbd className="hidden sm:inline-flex items-center gap-1 text-[10px] text-muted-foreground/60 border border-white/10 rounded px-1.5 py-0.5">
-            Ctrl K
-          </kbd>
-        </div>
-      </button>
+          <span className="text-sm text-muted-foreground">Search chapters, topics...</span>
+        </button>
+      ) : (
+        <button onClick={openPalette} className="hidden lg:flex items-center flex-1 max-w-md mx-6">
+          <div className="relative w-full glass rounded-full px-4 py-2 flex items-center gap-2 hover:ring-2 hover:ring-purple-500/40 transition-all cursor-pointer">
+            <Search className="w-4 h-4 text-muted-foreground shrink-0" />
+            <span className="text-sm text-muted-foreground flex-1 text-left">Search chapters, topics, weeks...</span>
+            <kbd className="hidden sm:inline-flex items-center gap-1 text-[10px] text-muted-foreground/60 border border-white/10 rounded px-1.5 py-0.5">
+              Ctrl K
+            </kbd>
+          </div>
+        </button>
+      )}
 
       {/* Palette overlay */}
       <AnimatePresence>

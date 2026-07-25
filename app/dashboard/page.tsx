@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
-  BookOpen, Sparkles, ChevronRight, Plus,
+  BookOpen, Sparkles, ChevronRight,
   Trophy, Star, MessageSquare, Phone,
   GraduationCap,
 } from 'lucide-react'
@@ -25,19 +25,27 @@ export default function DashboardPage() {
       <motion.div className="max-w-7xl mx-auto space-y-8" variants={containerVariants} initial="hidden" animate="visible">
 
         {/* ── Welcome ── */}
-        <motion.div variants={itemVariants} className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-8 border border-white/10">
+        <motion.div variants={itemVariants} className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-600/20 to-indigo-600/20 p-5 sm:p-8 border border-white/10">
           <div className="relative z-10">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-4xl font-bold mb-2">
-                  Welcome back, <span className="gradient-text">dear STEMer!</span> ✨
+                <h1 className="text-2xl sm:text-4xl font-bold mb-2">
+                  Welcome, <span className="gradient-text">dear STEMer!</span> ✨
                 </h1>
-                <p className="text-muted-foreground text-lg">
+                <p className="text-muted-foreground text-sm sm:text-lg">
                   You&apos;re on a 7-day streak! Keep up the amazing work.
                 </p>
+                <div className="mt-6">
+                  <Button
+                    className="bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700"
+                    onClick={() => window.dispatchEvent(new Event('open-nova'))}
+                  >
+                    <Sparkles className="w-4 h-4 mr-2" />Nova AI
+                  </Button>
+                </div>
               </div>
               <motion.div
-                className="relative hidden sm:block"
+                className="relative"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
               >
@@ -49,19 +57,12 @@ export default function DashboardPage() {
                 <img
                   src="/mascot/mascot.png"
                   alt="NovaSTEM mascot"
-                  className="relative z-10 h-40 w-auto drop-shadow-2xl"
+                  className="relative z-10 h-20 sm:h-40 w-auto drop-shadow-2xl"
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
                 />
               </motion.div>
             </div>
-            <div className="flex space-x-3 mt-6">
-              <Button className="bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700">
-                <Sparkles className="w-4 h-4 mr-2" />Continue Journal
-              </Button>
-              <Button variant="outline" className="glass">
-                <Plus className="w-4 h-4 mr-2" />New Project
-              </Button>
-            </div>
+
           </div>
           <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl" />
@@ -71,7 +72,7 @@ export default function DashboardPage() {
 
         {/* ── Capstone Portfolio ── */}
         <motion.div variants={itemVariants}>
-          <div className="relative overflow-hidden rounded-3xl border border-teal-500/20 bg-gradient-to-br from-teal-950/40 via-cyan-950/30 to-emerald-950/40 p-7">
+          <div className="relative overflow-hidden rounded-3xl border border-teal-500/20 bg-gradient-to-br from-teal-950/40 via-cyan-950/30 to-emerald-950/40 p-4 sm:p-7">
             {/* bg orbs */}
             <div className="absolute -top-12 -right-16 w-56 h-56 rounded-full bg-teal-500/10 blur-3xl pointer-events-none" />
             <div className="absolute -bottom-12 -left-16 w-56 h-56 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
@@ -246,7 +247,7 @@ export default function DashboardPage() {
 
         {/* ── Log Book Template ── */}
         <motion.div variants={itemVariants}>
-          <div className="relative overflow-hidden rounded-3xl border border-amber-500/20 bg-gradient-to-br from-amber-950/40 via-yellow-950/30 to-orange-950/40 p-7">
+          <div className="relative overflow-hidden rounded-3xl border border-amber-500/20 bg-gradient-to-br from-amber-950/40 via-yellow-950/30 to-orange-950/40 p-4 sm:p-7">
             <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
             <div className="absolute -bottom-12 -left-12 w-48 h-48 rounded-full bg-orange-500/10 blur-3xl pointer-events-none" />
             <div className="relative z-10 flex items-center gap-3 mb-6">
@@ -380,7 +381,7 @@ export default function DashboardPage() {
           </Link>
         </motion.div>
         <motion.div variants={itemVariants}>
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
             <div className="flex items-center gap-2">
               <GraduationCap className="w-5 h-5 text-purple-400" />
               <h2 className="text-xl font-bold">Old Challenges</h2>
@@ -576,7 +577,7 @@ export default function DashboardPage() {
 
         {/* ── Practice Tests ── */}
         <motion.div variants={itemVariants}>
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
             <div className="flex items-center gap-2">
               <Star className="w-5 h-5 text-purple-400" />
               <h2 className="text-xl font-bold">Practice Tests</h2>
@@ -587,7 +588,7 @@ export default function DashboardPage() {
               </Button>
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
                 number: '01',
