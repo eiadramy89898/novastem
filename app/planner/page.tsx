@@ -263,7 +263,7 @@ function WeekCard({ w, index }: { w: WeekData; index: number }) {
         {/* Header row — always visible */}
         <button
           onClick={() => setOpen(!open)}
-          className="w-full flex items-center gap-4 px-5 py-4 text-left group"
+          className="w-full flex items-center gap-3 px-4 py-4 text-left group"
         >
           {/* Week number bubble */}
           <div
@@ -386,7 +386,7 @@ export default function PlannerPage() {
 
         {/* ── Hero ── */}
         <motion.div variants={itemVariants}
-          className="relative overflow-hidden rounded-3xl border border-pink-500/25 p-8"
+          className="relative overflow-hidden rounded-3xl border border-pink-500/25 p-5 sm:p-8"
           style={{ background: 'linear-gradient(135deg, rgba(20,0,35,0.95) 0%, rgba(40,0,60,0.9) 50%, rgba(10,0,20,0.95) 100%)' }}
         >
           {/* Orbs */}
