@@ -35,18 +35,14 @@ export function AIAssistant() {
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
 
-  // keep mascot state in sync (used for future mascot image switching)
-  const [mascotState, setMascotState] = useState('idle')
-
+  // listen for open-nova custom event from anywhere in the app
   useEffect(() => {
-    if (isTyping) {
-      setMascotState('thinking')
-    } else if (messages.length > 1) {
-      setMascotState('happy')
-    } else {
-      setMascotState('idle')
-    }
-  }, [isTyping, messages])
+    const handler = () => { setIsOpen(true); setIsMinimized(false) }
+    window.addEventListener('open-nova', handler)
+    return () => window.removeEventListener('open-nova', handler)
+  }, [])
+
+
 
   const handleSend = async () => {
     if (!input.trim()) return

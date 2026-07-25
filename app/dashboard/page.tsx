@@ -35,6 +35,14 @@ export default function DashboardPage() {
                 <p className="text-muted-foreground text-sm sm:text-lg">
                   You&apos;re on a 7-day streak! Keep up the amazing work.
                 </p>
+                <div className="mt-6">
+                  <Button
+                    className="bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700"
+                    onClick={() => window.dispatchEvent(new Event('open-nova'))}
+                  >
+                    <Sparkles className="w-4 h-4 mr-2" />Nova AI
+                  </Button>
+                </div>
               </div>
               <motion.div
                 className="relative"
